@@ -23,6 +23,11 @@ class _MyAoussState extends State<MyAouss> {
   Widget build(BuildContext context) {
     return MaterialApp(
 
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.red,
+        ),
+      ),
 
           debugShowCheckedModeBanner: false,
           routes: {
