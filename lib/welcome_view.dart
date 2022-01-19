@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'create_account_view.dart';
+import 'forgot_password.dart';
+
 class WelcomeView extends StatefulWidget {
   const WelcomeView({Key? key}) : super(key: key);
   static const String routeName = '/welcome';
@@ -17,11 +20,11 @@ class _WelcomeViewState extends State<WelcomeView> {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 60.0),
+              padding: const EdgeInsets.only(top: 100.0),
               child: Center(
                 child: Container(
                     width: 200,
-                    height: 150,
+                    height: 100,
 
                     child: IconButton(
                       onPressed: () => {},
@@ -30,9 +33,22 @@ class _WelcomeViewState extends State<WelcomeView> {
                 ),
               ),
             ),
+
+            Container(
+              alignment: Alignment.topCenter,
+              child: const Text(
+                'MyAouss Company',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.grey),
+              ),
+            ),
+
+
             Container(
               alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 20, bottom: 20),
+              margin: EdgeInsets.only(left: 20, bottom: 20, top: 50),
               child: const Text(
                 'Sign In',
                 style: TextStyle(
@@ -47,7 +63,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Email',
-                    hintText: 'Enter valid email'),
+                    hintText: 'Enter your email'),
               ),
             ),
             const Padding(
@@ -59,7 +75,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Password',
-                    hintText: 'Enter secure password'),
+                    hintText: 'Enter your password'),
               ),
             ),
             Container(
@@ -68,6 +84,7 @@ class _WelcomeViewState extends State<WelcomeView> {
               child: TextButton(
 
                 onPressed: (){
+                  Navigator.pushNamed(context, ForgotPassword.routeName);
                 },
                 child: const Text(
                   'Forgot Password',
@@ -82,19 +99,28 @@ class _WelcomeViewState extends State<WelcomeView> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => WelcomeView()));
+
                 },
                 child: const Text(
                   'Login',
-                  style: TextStyle(color: Colors.white, fontSize: 25),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 130,
+
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(right: 20, top: 40),
+              child: TextButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, CreateAccountView.routeName);
+                },
+                child: const Text(
+                  'New User? Create Account',
+                  style: TextStyle(color: Colors.grey, fontSize: 15),
+                ),
+              ),
             ),
-            const Text('New User? Create Account')
           ],
         ),
       ),
