@@ -14,7 +14,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Create Account'),
+        title: Text('Create Account.'),
       ),
     );
   }
